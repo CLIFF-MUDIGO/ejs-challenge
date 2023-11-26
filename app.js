@@ -16,6 +16,7 @@ app.use(express.static("public"));
 let posts = [];
 
 app.set('view engine', 'ejs');
+
 app.get("/" , function(req, res){
   res.render("home", { startingContent: homeStartingContent, posts: posts});
 })
@@ -45,6 +46,6 @@ app.post("/compose" , function(req, res){
 
 
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
 });
